@@ -11,6 +11,8 @@ class MainActivity : ComponentActivity() {
     private var placarTimeB:Int = 0
     private lateinit var pTimeA: TextView
     private lateinit var pTimeB: TextView
+    private lateinit var nomeTimeA:TextView
+    private lateinit var nomeTimeB:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +21,8 @@ class MainActivity : ComponentActivity() {
         pTimeA = findViewById(R.id.placarTimeA)
         pTimeB = findViewById(R.id.placarTimeB)
 
+        nomeTimeA = findViewById(R.id.timeA)
+        nomeTimeB = findViewById(R.id.timeB)
         val bTresPontosTimeA:Button = findViewById(R.id.tresPontosA)
         val bTLivreTimeA: Button = findViewById(R.id.tiroLivreA)
         val bDoisPontosTimeA: Button = findViewById(R.id.doisPontosA)
@@ -48,6 +52,12 @@ class MainActivity : ComponentActivity() {
         bReiniciar.setOnClickListener {
             reiniciarPartida()
         }
+        nomeTimeA.setOnClickListener {
+            editarNomeTime(nomeTimeA)
+        }
+        nomeTimeB.setOnClickListener {
+            editarNomeTime(nomeTimeB)
+        }
     }
 
     fun adicionarPontos(pontos: Int, time: String){
@@ -75,5 +85,21 @@ class MainActivity : ComponentActivity() {
         placarTimeB = 0
         pTimeB.setText(placarTimeB.toString())
         Toast.makeText(this, "Placar reiniciado", Toast.LENGTH_SHORT).show()
+    }
+    fun editarNomeTime(textView: TextView) {
+        val input = android.widget.EditText(this)
+        input.setText(textView.text.toString())
+
+        android.app.AlertDialog.Builder(this)
+            .setTitle("Alterar nome do time")
+            .setView(input)
+            .setPositiveButton("OK") { _, _ ->
+                val novoNome = input.text.toString()
+                if (novoNome.isNotBlank()) {
+                    textView.text = novoNome
+                }
+            }
+            .setNegativeButton("Cancelar", null)
+            .show()
     }
 }
