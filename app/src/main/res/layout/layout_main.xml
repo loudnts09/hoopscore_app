@@ -18,20 +18,36 @@
 
             <TextView
                 android:id="@+id/timeA"
-                style="@style/TitleLabel"
-                android:layout_width="match_parent"
-                android:layout_height="47dp"
-                android:gravity="center"
-                android:paddingTop="16dp"
-                android:text="Time A" />
-
-            <TextView
-                android:id="@+id/placarTimeA"
-                style="@style/ScoreText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="0" />
+                android:gravity="center"
+                android:paddingTop="16dp"
+                style="@style/TitleLabel"
+                android:text="Time A"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <TextView
+                    android:id="@+id/placarTimeA"
+                    style="@style/ScoreText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0"/>
+
+                <TextView
+                    android:id="@+id/fireA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔥"
+                    android:textSize="65sp"
+                    android:visibility="gone"
+                    android:layout_gravity="end|top"
+                    android:translationX="-6dp"
+                    android:translationY="-6dp"/>
+            </FrameLayout>
 
             <Button
                 android:id="@+id/tresPontosA"
@@ -72,17 +88,36 @@
                 android:id="@+id/timeB"
                 style="@style/TitleLabel"
                 android:layout_width="match_parent"
-                android:layout_height="47dp"
+                android:layout_height="wrap_content"
                 android:text="Time B"
+                android:gravity="center"
                 android:paddingTop="16dp"/>
 
-            <TextView
-                android:id="@+id/placarTimeB"
-                style="@style/ScoreText"
+
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:layout_margin="8dp"/>
+                android:layout_margin="8dp">
+
+                <TextView
+                    android:id="@+id/placarTimeB"
+                    style="@style/ScoreText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0"/>
+
+                <TextView
+                    android:id="@+id/fireB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|top"
+                    android:text="🔥"
+                    android:textSize="65sp"
+                    android:translationX="-6dp"
+                    android:translationY="-6dp"
+                    android:visibility="gone" />
+
+            </FrameLayout>
 
             <Button
                 android:id="@+id/tresPontosB"
