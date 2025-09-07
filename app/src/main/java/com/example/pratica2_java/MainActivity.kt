@@ -118,7 +118,13 @@ class MainActivity : ComponentActivity() {
         streakA = 0; streakB = 0
         fireA.visibility = View.GONE
         fireB.visibility = View.GONE
-        Toast.makeText(this, "Placar reiniciado", Toast.LENGTH_SHORT).show()
+
+        var builder = android.app.AlertDialog.Builder(this)
+        builder.setTitle("Placar reiniciado")
+        builder.setMessage("O placar foi zerado com sucesso!")
+        builder.setIcon(R.mipmap.ic_launcher)
+        builder.setPositiveButton("OK", null)
+        builder.show()
     }
     fun editarNomeTime(textView: TextView) {
         val input = android.widget.EditText(this)
